@@ -1,7 +1,8 @@
+class_name Player
 extends RigidBody3D
 
 @export var speed = 3.0
-
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,9 @@ func _input(event):
 	elif event.is_action("player_move_rightward"):
 		apply_central_force(Vector3.LEFT * -1 * speed)
 
-
-func _on_body_entered(body):
-	print(typeof(body))
+func _on_body_entered(body: Node):
+	var player := body as Food
+	
+	if player:
+		score += player.value
+		player.queue_free()

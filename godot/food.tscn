@@ -2,22 +2,20 @@
 
 [ext_resource type="Script" path="res://Food.gd" id="1_uprqd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_164g1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3gtu"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_t6qfd"]
+[sub_resource type="BoxMesh" id="BoxMesh_sc4mp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7is7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx0x5"]
 albedo_color = Color(1, 1, 0.294118, 1)
 
-[node name="Root" type="Node3D"]
+[node name="Food" type="StaticBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_uprqd")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e3gtu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_164g1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_t6qfd")
-surface_material_override/0 = SubResource("StandardMaterial3D_j7is7")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_sc4mp")
+surface_material_override/0 = SubResource("StandardMaterial3D_sx0x5")

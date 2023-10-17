@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnrxxdt2xpiho"]
 
 [ext_resource type="PackedScene" uid="uid://conoj2vfjclnx" path="res://Player.tscn" id="1_tsbmk"]
-[ext_resource type="PackedScene" uid="uid://26spql23s80i" path="res://food.tscn" id="1_xn7no"]
+[ext_resource type="PackedScene" uid="uid://26spql23s80i" path="res://Food.tscn" id="1_xn7no"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_clbe4"]
 
@@ -33,9 +33,20 @@ shape = SubResource("BoxShape3D_8v76g")
 [node name="Player" parent="." instance=ExtResource("1_tsbmk")]
 speed = 7.0
 
-[node name="Food 1" parent="." instance=ExtResource("1_xn7no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74, 0.18, 2.08165e-12)
+[node name="Food" parent="." instance=ExtResource("1_xn7no")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.573898, 0.168487, -0.0274963)
 
-[node name="Food 2" parent="." instance=ExtResource("1_xn7no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.677, 0.18, 2.08165e-12)
+[node name="Food2" parent="." instance=ExtResource("1_xn7no")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.615564, 0.168487, -0.0274963)
 speed = 4.0
+value = 4
+
+[node name="Food3" parent="." instance=ExtResource("1_xn7no")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00710124, 0.168487, -0.557098)
+speed = 3.0
+value = 3
+
+[node name="Food4" parent="." instance=ExtResource("1_xn7no")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0139191, 0.168487, 0.525031)
+speed = 5.0
+value = 5
