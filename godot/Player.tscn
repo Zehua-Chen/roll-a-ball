@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://conoj2vfjclnx"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_obxg8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hv1li"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rud0o"]
+radius = 0.1
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qamg"]
+font_size = 32
+
+[node name="Player" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.212108, 0)
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_obxg8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("SphereMesh_hv1li")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rud0o")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -86.0
+offset_top = 15.0
+offset_right = -21.0
+offset_bottom = 63.0
+grow_horizontal = 0
+text = "Test"
+label_settings = SubResource("LabelSettings_1qamg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
